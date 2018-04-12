@@ -9,7 +9,7 @@ services:
     volumes:
       - vendor-sync:/var/www/vendor:nocopy
     environment:
-      VIRTUAL_HOST: controlpanel-evolve.docker
+      VIRTUAL_HOST: project-virtual-host-name.docker
     networks:
       - osxdockerproxy_default
       - default
