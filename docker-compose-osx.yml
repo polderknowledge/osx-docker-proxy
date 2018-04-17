@@ -1,0 +1,19 @@
+version: "3"
+
+networks:
+  osxdockerproxy_default:
+    external: true
+
+services:
+  webserver:
+    volumes:
+      - vendor-sync:/var/www/vendor:nocopy
+    environment:
+      VIRTUAL_HOST: project-virtual-host-name.docker
+    networks:
+      - osxdockerproxy_default
+      - default
+
+volumes:
+  vendor-sync:
+    external: true
