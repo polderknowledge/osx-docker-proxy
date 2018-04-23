@@ -55,7 +55,8 @@ docker-compose up -d
 
 ## 3. Set up your project
 1. Check that there is a docker-compose-osx.yml in the root directory of the project.
-- If missing, copy the example file from this project and change the VIRTUAL_HOST attribute to a meaningful name, for example: my-project.docker
+- If missing, copy the example file from this project and change the VIRTUAL_HOST attribute to a meaningful name, for example: my-project.docker.
+**Important !** the name of the VIRTUAL_HOST attribute can not be the same as the docker container name.
 2. Start docker on your project
 ```
 docker-sync start
