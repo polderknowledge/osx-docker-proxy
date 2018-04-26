@@ -54,8 +54,10 @@ docker-compose up -d
 ```
 
 ## 3. Set up your project
-1. Check that there is a docker-compose-osx.yml in the root directory of the project.
-- If missing, copy the example file from this project and change the VIRTUAL_HOST attribute to a meaningful name, for example: my-project.docker
+1. Check that there is a docker-compose-osx.yml and docker-sync.yml in the root directory of the project.
+- If missing, copy the example files from this project and change the `-project-name` attributes to a meaningful name.
+**Important !** the name of the VIRTUAL_HOST attribute (docker-compose-osx.yml) can not be the same as the docker container name !!!
+
 2. Start docker on your project
 ```
 docker-sync start
@@ -65,6 +67,19 @@ _Alternatively you can start any project using the start-project.sh script_
 
 3. Test it out, your Docker container should be accessible now.
 For example to access the port 80 of the previous example you can use a web browser with the following URL `http://my-project.docker` .
+
+
+## 4. Optional settings
+- Port forwarding.
+Sometimes might be useful to expose a service from a container to your local machine.
+You can set it up in the `services` section of the docker-compose-osx.yml file:
+```
+services:
+  service-name:
+	ports:
+	  - 9000:80
+```
+_In this example we are forwarding the port 80 from the container to localhost:9000 for a service called `service-name`._
 
 Configuration files of this project
 -----------------------------------
@@ -76,6 +91,9 @@ DnsMasq resolver to point `.docker` to localhost.
 
 - docker-compose-osx.yml
 Example configuration file for a project.
+
+- docker-sync.yml
+Example synchronisation file for a project.
 
 - start-project.sh
 Bash file to start docker in a given project.
