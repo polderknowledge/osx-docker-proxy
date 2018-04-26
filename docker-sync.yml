@@ -1,0 +1,5 @@
+version: "2"
+
+syncs:
+  vendor-sync-project-name:
+    src: ./public/vendor

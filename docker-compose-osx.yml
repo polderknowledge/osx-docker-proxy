@@ -7,7 +7,7 @@ networks:
 services:
   webserver:
     volumes:
-      - vendor-sync:/var/www/vendor:nocopy
+      - vendor-sync-project-name:/var/www/vendor:nocopy
     environment:
       VIRTUAL_HOST: project-virtual-host-name.docker
     networks:
@@ -15,5 +15,5 @@ services:
       - default
 
 volumes:
-  vendor-sync:
+  vendor-sync-project-name:
     external: true
